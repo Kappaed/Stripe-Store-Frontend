@@ -1,13 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import ProductsContextProvider from "./context/products-context";
+import CartContextProvider from "./context/cart-context";
+import UserContextProvider from "./context/user-context";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <ProductsContextProvider>
+        <CartContextProvider>
+          <Elements stripe={stripePromise}>
+            <UserContextProvider>
+              <App />
+            </UserContextProvider>
+          </Elements>
+        </CartContextProvider>
+      </ProductsContextProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
