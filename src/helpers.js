@@ -2,7 +2,7 @@ import { auth } from "./firebase";
 export const isInCart = (products, id) =>
   products.findIndex((product) => product.id === id) !== -1;
 
-const API = "http://localhost:8080";
+const API = "https://stripe-store-281f3.web.app";
 
 export const fetchFromAPI = async (endpoint, opts) => {
   const { method, body } = { method: "POST", body: null, ...opts };
