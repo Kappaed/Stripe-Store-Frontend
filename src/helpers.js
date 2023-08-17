@@ -18,7 +18,6 @@ export const fetchFromAPI = async (endpoint, opts) => {
     ...(body && { body: JSON.stringify(body) }),
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
       Authorization: `Bearer ${token}`,
     },
   });
