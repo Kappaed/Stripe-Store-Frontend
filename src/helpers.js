@@ -2,7 +2,7 @@ import { auth } from "./firebase";
 export const isInCart = (products, id) =>
   products.findIndex((product) => product.id === id) !== -1;
 
-const API = "https://stripe-backend.adaptable.app:3000";
+const API = "https://stripe-backend.adaptable.app";
 
 export const fetchFromAPI = async (endpoint, opts) => {
   const { method, body } = {
