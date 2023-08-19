@@ -11,7 +11,9 @@ import UserContextProvider from "./context/user-context";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(
+  "pk_test_51MwKUtLMFN1DzlGTSwp6m3Lt7ZOzDl3zUIsZ3Ona1A8DkPQFup0JG8dWfLoteEpc5RSMkqhwgReemXad4evMwL4H00EHITgJqm"
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
