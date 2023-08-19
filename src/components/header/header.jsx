@@ -21,7 +21,7 @@ const Header = () => {
         </li>
         {!user && (
           <li>
-            <Link to="/sign-in">Sign In</Link>
+            <Link to="/signin">Sign In</Link>
           </li>
         )}
         {user && <li onClick={() => auth.signOut()}>Sign Out</li>}
